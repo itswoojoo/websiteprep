@@ -1,0 +1,494 @@
+
+
+/* Regular 폰트 */
+@font-face {
+  font-family: 'SUIT';
+  src: url('SUIT-woff2/SUIT-Regular.woff2') format('woff2');
+  font-weight: normal;
+}
+
+/* bold 폰트 */
+@font-face {
+  font-family: 'SUIT';
+  src: url('SUIT-woff2/SUIT-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+
+/* Light 폰트 */
+@font-face {
+  font-family: 'SUIT';
+  src: url('SUIT-woff2/SUIT-Light.woff2') format('woff2');
+  font-weight: 300; /* Light 스타일 */
+}
+
+/* Thin 폰트 */
+@font-face {
+  font-family: 'SUIT';
+  src: url('SUIT-woff2/SUIT-Thin.woff2') format('woff2');
+  font-weight: 100; /* Thin 스타일 */
+}
+
+@font-face {
+  font-family: 'NanumMyeongjo';
+  src: url('경로/NanumMyeongjo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'SUIT', sans-serif;
+  overflow-x: hidden;  /* 가로 스크롤 숨김 */
+  width: 100vw;  /* 가로 너비를 화면 크기로 제한 */
+  height: 100vh; /* 세로 높이를 화면 크기로 제한 */
+}
+
+/* 기본 스타일 리셋 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 500vh;
+  overflow: hidden; /* 기본 스크롤 막기 */
+}
+
+
+.page {
+  width: 100vw;
+  height: 100vh; /* 각 페이지는 화면 전체 크기 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: all 0.5 ease;
+} 
+
+/* 헤더 스타일 */
+.main-header {
+  position: fixed; /* 화면 스크롤 시에도 고정 */
+  top: 0;
+  left: 0;
+  width: 100%; /* 화면 전체 너비 */
+  height: 60px; /* 고정된 높이 */
+  background-color: rgba(255, 255, 255, 0.8); /* 반투명 흰색 배경 */
+  display: flex; /* Flexbox 레이아웃 */
+  justify-content: space-between; /* 좌우로 간격 설정 */
+  align-items: center; /* 세로 중앙 정렬 */
+  padding: 0 20px; /* 좌우 여백 */
+  z-index: 5; /* 다른 요소 위에 표시 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  backdrop-filter: blur(10px); /* 배경 흐림 효과 */
+}
+
+/* 헤더 안의 요소 스타일 */
+
+.bar{
+	position: fixed;
+	top: 0px; left: 0px;
+	width: 0%; height: 5px;
+	background: linear-gradient(to right, rgb(0, 11, 114), rgb(16, 59, 100), rgb(113, 175, 214), #009999);
+	z-index: 9999999;
+}
+
+.main-header .R {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#h-img {
+  height: 25px;
+}
+
+#h-logo {
+  height: 35px;
+}
+
+@media (max-width: 768px) {
+  .main-header .R {
+    font-size: 14px; /* 작은 화면에서 고정 크기 사용 */
+  }
+  #h-img {
+    height: 16px;
+  }
+  #h-logo {
+    height: 25px;
+  }
+}
+
+.main-header .R .number {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #000000; /* 글자색 설정 */
+  font-weight: bold;
+  font-size: larger;
+}
+
+.menuContent {
+  display: none; /* 기본적으로 숨김 */
+  justify-content: center; /* 가로 방향 중앙 정렬 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
+  flex-direction: column; /* 세로 정렬을 위해 요소들을 열로 배치 */
+  background-color: #151b41e9; /* 배경색 */
+  padding: 20px; /* 내부 여백 */
+  position: fixed;
+  top: 60px; /* 메뉴 버튼 바로 아래로 위치 */
+  right: 0%; /* 화면 오른쪽에서 간격 */
+  width: 250px; /* 메뉴의 너비 */
+  height: calc(100vh - 60px); /* 화면 높이 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+
+  /* overflow-y: auto; 내용이 넘칠 경우 스크롤 가능하게 설정 */
+}
+
+.menuContent ul {
+  list-style: none; /* 기본 리스트 스타일 제거 */
+  padding: 20% 10%; 
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.menuContent ul li {
+  margin: 20px 0; /* 리스트 항목 간의 간격 추가 */
+  font-weight: bold;
+}
+
+.menuContent ul li a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: #ffffff; /* 텍스트 색상 */
+  font-size: 1.8rem; /* 고정된 텍스트 크기 */
+  transition: color 0.2s; /* 호버 시 부드러운 색상 변경 */
+}
+
+.menuContent ul li a:hover {
+  color: #0571e5; /* 호버 시 색상 강조 */
+}
+
+@media (max-width: 768px) {
+  .menuContent {
+    width: 40%; 
+  }
+
+  .menuContent ul li a {
+    font-size: 1rem; /* 작은 화면에서는 글씨 크기를 조금 줄임 */
+  }
+}
+.menubtn {
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 가로 정렬 */
+  align-items: center; /* 세로 정렬 */
+  width: 50px; /* 원하는 크기로 설정 */
+  height: 50px; /* 원하는 크기로 설정 */
+  background-color: #3c436d; /* 배경색 (옵션) */
+  color: white;
+  border-radius: 5px; /* 모서리 둥글게 (옵션) */
+  cursor: pointer; /* 클릭 가능한 포인터 */
+}
+
+
+/* 첫 번째 페이지 --------------------------*/
+#p1-wrapper {
+  position: relative; /* 부모 요소에 상대 위치 설정 */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* 비디오나 이미지가 부모 영역을 넘지 않도록 */
+}
+
+
+/* 헤더 밑의 비디오 영역 */
+.v1-wrapper {
+  margin-top: 60px; 
+  height: 100vh;
+  overflow: hidden; 
+}
+
+/* 비디오 스타일 */
+.v1-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*비율 유지하며 화면 채우기*/
+  z-index: -1; 
+}
+
+.p1-img {
+  position: absolute; /* 비디오 위에 절대 위치 */
+  top: 50%;
+  left: 50%; /* 가로 중앙에 위치 */
+  transform: translate(-50%, -50%); /* 정확히 중앙에 배치 */
+  width: 100vw; /* 화면 가로를 꽉 채움 */
+  height: 30%; /* 높이를 40px로 설정 */
+  display: flex; /* Flexbox로 자식 요소를 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  z-index: 1; /* 비디오 위에 표시되도록 설정 */
+}
+
+/* div 안의 이미지 */
+.p1-img img {
+  max-height: 100%; /* 높이는 100%로 설정 (div 높이에 맞춰짐) */
+  width: 100vw; /* 가로 크기는 비율에 맞게 자동 설정 */
+  opacity: 0.9;
+  transition: all 0.5s;
+}
+
+/* 비디오 위의 텍스트 */
+.p1-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(4, 25, 39);
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  z-index: 1;
+  width: 100%; 
+  padding: 20% 0; 
+  text-shadow: 1px 1px rgb(255, 255, 255);
+} 
+
+.p1-logo {
+  margin-top: 80vh;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .p1-txt {
+    font-size: 18px; /*작은 화면에서 고정 크기 사용*/
+  }
+}
+
+
+
+
+/* 두 번째 페이지 -------------------------------------------------------*/
+#p2-wrapper {
+  width: 100vw;
+  height: 100vh; /* 화면 가득 차게 설정 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 비디오 스타일 */
+.v2-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*비율 유지하며 화면 채우기*/
+  z-index: -1; 
+}
+
+/* 텍스트 스타일 */
+.txt-container {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  background-color: #00000050;
+  text-align: center;
+  text-decoration:double;
+  font-size: 35px;
+  z-index: 1;
+  width: 100vw; /* 가로로 꽉 채움 */
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* 세로 정렬 추가 */
+  justify-content: center; /* 세로 중앙 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+  padding: 0 8%;
+  /* 글자 테두리 효과 */
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.5), -2px -2px rgba(0, 0, 0, 0.5);
+}
+
+#강조 {
+  font-weight: bolder;
+  font-size: 45px;
+  color: #8d949994;
+  text-shadow: 2px 2px rgb(255, 255, 255);
+}
+
+/* 작은 화면에 대한 처리 */
+@media (max-width: 768px) {
+  .txt-container {
+    font-size: 19px; /* 작은 화면에서 폰트 크기 줄이기 */
+  }
+}
+
+
+
+
+/* 세번째 페이지 -------------------------------------------------------*/
+
+.사업개요1 {
+  object-fit: cover; /*비율 유지하며 화면 채우기*/
+  width: 100%; /* 가로를 100%로 설정 */
+  height: auto; /* 비율을 유지한 높이 */
+}
+
+/* 화면 크기가 768px 이하일 때 세로 정렬을 위한 기본 스타일 */
+.사업개요2 {
+  display: none;
+  flex-direction: column; /* 세로 정렬 */
+  justify-content: space-between; /* 이미지 간격 맞추기 */
+  height: 100vh; /* 화면 전체 높이 */
+}
+
+.사업개요2 img {
+  object-fit: cover; /* 이미지 비율 유지하며 부모 요소 채우기 */
+  width: 100%; /* 이미지 가로를 부모와 맞추기 */
+  height: 50vh; /* 화면의 절반씩 차지하도록 설정 */
+}
+
+/* 기본 숨김 및 보임 스타일 */
+.display-none {
+  display: none !important;
+}
+
+
+.show {
+  display: flex !important; /* 부모 Flexbox를 활성화 */
+  flex-direction: column; /* 세로 정렬 */
+  justify-content: space-between;
+  height: 100vh; /* 화면 전체 높이 */
+}
+
+
+.close {
+  display: none !important;
+}
+
+
+
+
+/* 네번째 페이지 -------------------------------------------------------*/
+
+.map-container {
+  position: relative;
+  display: block;  /* inline-block 대신 block 사용 */
+  background-color: white;
+  width: 100%;     /* 부모 요소가 전체 너비를 차지하도록 설정 */
+  text-align: center; /* 내부 요소(버튼 등)를 중앙 정렬 */
+}
+
+#map {
+  width: 90vw;
+  height: auto;
+  position: relative;
+  background-size: cover;
+  cursor: pointer;
+}
+
+
+#liveAlertBtn {
+  position: fixed;       /* 화면에 고정 */
+  bottom: 20px;          /* 하단에서 20px 위 */
+  left: 50%;             /* 가로 중앙 */
+  transform: translateX(-50%);  /* 정확한 중앙 정렬 */
+  font-size: 25px;
+  font-weight: bolder;
+  background-color: #3c436d;
+  border: transparent;
+  z-index: 1000;         /* 다른 요소 위에 표시 */
+  padding: 20px 30px;    /* 버튼 크기 조정 */
+  cursor: pointer;       /* 클릭 가능한 포인터 표시 */
+  color: #ffffff;
+
+}
+
+/* 다섯번째 페이지 -------------------------------------------------------*/
+
+/* #contact와 #phone-input을 상하로 배치할 부모 요소 스타일 */
+.contact-wrapper {
+  display: flex;  /* Flexbox 활성화 */
+  flex-direction: column;  /* 세로로 정렬 */
+  align-items: center;  /* 중앙 정렬 (가로) */
+  width: 80vw;
+  gap: 20px;  /* 두 요소 간 간격 설정 */
+}
+
+#contact {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+#contact a {
+  display: block;           /* 링크를 세로로 배치 */
+  text-decoration: none;    /* 밑줄 제거 */
+  color: inherit;           /* 기본 파란색 제거, 상위 요소 색상 상속 */
+  margin-bottom: 10px;      /* 각 링크 간 여백 */
+}
+
+#contact a:hover {
+  color: #3c436d;           /* 호버 시 색상 변경 */
+}
+
+#call {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#h-img {
+  width: 30px;
+  height: auto;              /* 전화 아이콘 크기 조정 */
+  margin: 10px 0;
+}
+
+#call-num {
+  font-size: larger;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+/* 폼 스타일 */
+#phone-input {
+  position: relative;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#phone-input label,
+#phone-input input,
+#phone-input button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#phone-input button {
+  background-color: #3c436d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#phone-input button:hover {
+  background-color: #2a314f;
+}
+
