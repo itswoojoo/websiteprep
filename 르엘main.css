@@ -412,6 +412,11 @@ body {
 /* 다섯번째 페이지 -------------------------------------------------------*/
 
 /* #contact와 #phone-input을 상하로 배치할 부모 요소 스타일 */
+#p5-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .contact-wrapper {
   display: flex;  /* Flexbox 활성화 */
   flex-direction: column;  /* 세로로 정렬 */
@@ -421,7 +426,8 @@ body {
 }
 
 #contact {
-  position: relative;
+  position: absolute;
+  margin-top: 30vh;
   width: 100%;
   text-align: center;
   padding: 20px;
@@ -459,7 +465,7 @@ body {
   letter-spacing: 2px;
 }
 
-/* 폼 스타일 */
+/* 폼 스타일
 #phone-input {
   position: relative;
   width: 100%;
@@ -492,3 +498,10 @@ body {
   background-color: #2a314f;
 }
 
+*/ .footer {
+  margin-top: 90vh;
+  font-size: 11px;
+  width: 100%;
+  text-align: center;
+  /* 중앙 정렬 */
+}

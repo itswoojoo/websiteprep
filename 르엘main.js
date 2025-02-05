@@ -76,11 +76,11 @@ $(document).ready(function() {
 //-------------------------------
 
 
-$(document).ready(function() {
-  $('#phone-input').submit(function(event) {
-      event.preventDefault(); // 기본 폼 제출 동작을 막습니다.
-      var phoneNumber = $('#phone').val();
-      $('#display').text('입력된 전화번호: ' + phoneNumber);
-  });
-});
+// $(document).ready(function() {
+//   $('#phone-input').submit(function(event) {
+//       event.preventDefault(); // 기본 폼 제출 동작을 막습니다.
+//       var phoneNumber = $('#phone').val();
+//       $('#display').text('입력된 전화번호: ' + phoneNumber);
+//   });
+// });
 
